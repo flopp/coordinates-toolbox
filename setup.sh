@@ -36,9 +36,6 @@ clone "http://git.code.sf.net/p/geographiclib/code" ".local/geographiclib"
     .local/geographiclib/js/src/PolygonArea.js \
     > .local/geographiclib/js/geographicslib.js
 
-# PureCSS
-download "https://unpkg.com/purecss@0.6.1/build/pure-min.css" ".local/purecss/pure-min.css"
-download "https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css" ".local/purecss/grids-responsive-min.css"
 
 JS=".local/geographiclib/js/geographicslib.js src/js/utils.js src/js/latlng.js src/js/app.js src/js/main.js"
 CSS="src/css/main.css"
