@@ -1,0 +1,20 @@
+.my-header {
+    padding: 5px 0;
+    margin-bottom: 20px;
+    color: #ccc;
+    text-align: center;
+    background-color: #222;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.my-header h1 {
+    margin-bottom: 20px;
+}
+
+.my-footer {
+    padding: 5px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
