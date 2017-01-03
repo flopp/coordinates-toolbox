@@ -13,16 +13,6 @@ function clone() {
     fi
 }
 
-function download() {
-    local URL="$1"
-    local FILE="$2"
-
-    if [ ! -f "$FILE" ] ; then
-        mkdir -p $(dirname "$FILE")
-        wget -O "$FILE" "$URL"
-    fi
-}
-
 mkdir -p ".local"
 
 # GeographicLib
@@ -40,7 +30,7 @@ clone "http://git.code.sf.net/p/geographiclib/code" ".local/geographiclib"
 JS=".local/geographiclib/js/geographicslib.js src/js/utils.js src/js/latlng.js src/js/app.js src/js/main.js src/js/side-menu.js"
 CSS="src/css/main.css src/css/side-menu.css"
 
-B=".build/dev"
+B=".build"
 mkdir -p $B
 cp src/html/index.html $B
 cat $JS > $B/scripts.js
