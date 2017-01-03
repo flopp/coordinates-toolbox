@@ -6,6 +6,7 @@
         <title>Coordinates Toolbox</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/pure-min.css" integrity="sha256-38M7q5qojYnNeMJh+sMEDVvJ27EW2sKa/0zR0bFo0Ns=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css" integrity="sha256-9mfj77orHLh2GsN7CbMvpjO/Wny/ZZhR7Pu7hy0Yig4=" crossorigin="anonymous" />
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
@@ -108,6 +109,7 @@
                             </select>
                         </div>
                     </div>
+                    <div id="projMap" class="map"></div>
 
                     <a name="distance"></a>
                     <h2 class="content-subhead">Distance / Bearing</h2>
@@ -172,6 +174,7 @@
                             <input id="distBearing" class="pure-input-1" type="text" readonly />
                         </div>
                     </div>
+                    <div id="distMap" class="map"></div>
 
                     <a name="formats"></a>
                     <h2 class="content-subhead">Formats</h2>
@@ -222,6 +225,7 @@
                             <input id="formResultD" class="pure-input-1" type="text" readonly />
                         </div>
                     </div>
+                    <div id="formMap" class="map"></div>
                 </div>
 
                 <div class="footer">
@@ -233,6 +237,7 @@
         </div> <!-- layout -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js" integrity="sha256-RS5bDpN9YmmUIdtdu8ESPjNp1Bg/Fqu90PwN3uawdSQ=" crossorigin="anonymous"></script>
         <script type="application/javascript" src="scripts.js"></script>
     </body>
 </html>

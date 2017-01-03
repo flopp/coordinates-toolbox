@@ -13,3 +13,10 @@
     padding: 1em 0;
     border-top: 1px solid #eee;
 }
+
+.map {
+    margin-top: 1em;
+    width: 100%;
+    /* hack for square, responsive div */
+    padding-bottom: 100%;
+}

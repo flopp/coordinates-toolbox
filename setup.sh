@@ -27,7 +27,7 @@ clone "http://git.code.sf.net/p/geographiclib/code" ".local/geographiclib"
     > .local/geographiclib/js/geographicslib.js
 
 
-JS=".local/geographiclib/js/geographicslib.js src/js/utils.js src/js/latlng.js src/js/app.js src/js/main.js src/js/side-menu.js"
+JS=".local/geographiclib/js/geographicslib.js src/js/utils.js src/js/latlng.js src/js/map.js src/js/app.js src/js/main.js src/js/side-menu.js"
 CSS="src/css/main.css src/css/side-menu.css"
 
 B=".build"

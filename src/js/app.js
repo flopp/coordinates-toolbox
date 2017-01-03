@@ -1,12 +1,23 @@
 App = function() {
+    // models
+    this.model_wgs84 = GeographicLib.Geodesic.WGS84;
+    this.model_sphere = new GeographicLib.Geodesic.Geodesic(6378137, 0);
+
+    // maps
+    this.projMap = new Map("projMap");
+    this.distMap = new Map("distMap");
+    this.formMap = new Map("formMap");
+
+    // results
     this.projResult = new LatLng();
     this.distResultDist = NaN;
     this.distResultBearing = NaN;
     this.formResult = new LatLng();
+
+    // init
     this.initEventHandlers();
     this.initValidators();
-    this.model_wgs84 = GeographicLib.Geodesic.WGS84;
-    this.model_sphere = new GeographicLib.Geodesic.Geodesic(6378137, 0);
+
 };
 
 
@@ -57,6 +68,8 @@ App.prototype = {
         }
         var r = m.Direct(coords.lat, coords.lng, bearing, distance);
         this.projResult.setLatLng(r.lat2, r.lon2);
+
+        this.projMap.setMarkers(coords, this.projResult);
         this.displayProjResult();
     },
 
@@ -110,6 +123,7 @@ App.prototype = {
         this.distResultDist = r.s12;
         this.distResultBearing = r.azi1;
 
+        this.distMap.setMarkers(coords1, coords2);
         this.displayDistResult();
     },
 
@@ -153,6 +167,7 @@ App.prototype = {
 
     computeFormats : function() {
         this.formResult.fromString($("#formCoords").val());
+        this.formMap.setMarker(this.formResult);
         this.displayFormResult();
     },
 
