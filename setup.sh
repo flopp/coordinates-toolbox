@@ -43,7 +43,7 @@ rm -f $B/*
 
 echo "copying html files"
 cp src/html/index.html $B
-cp -f "google*.html" $B
+cp -f google*.html $B
 
 echo "copying js files"
 cat $JS > $B/scripts.js
