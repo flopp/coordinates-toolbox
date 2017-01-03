@@ -17,6 +17,6 @@
 .map {
     margin-top: 1em;
     width: 100%;
-    /* hack for square, responsive div */
-    padding-bottom: 100%;
+    /* hack for responsive div with x/y ratio = 100/66 */
+    padding-bottom: 66%;
 }
