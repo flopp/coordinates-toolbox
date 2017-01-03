@@ -176,12 +176,12 @@ App.prototype = {
 
 
     showError : function(inpDiv, msgDiv, msg) {
-        $("#" + inpDiv).addClass("has-error");
+        //$("#" + inpDiv).addClass("has-error");
         $("#" + msgDiv).show();
-        $("#" + msgDiv + " .help-block").text(msg);
+        $("#" + msgDiv + " div").text(msg);
     },
     hideError : function(inpDiv, msgDiv) {
-        $("#" + inpDiv).removeClass("has-error");
+        //$("#" + inpDiv).removeClass("has-error");
         $("#" + msgDiv).hide();
     }
 }

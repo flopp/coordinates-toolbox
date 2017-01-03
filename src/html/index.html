@@ -5,82 +5,102 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Coordinates Toolbox</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.1/pure-min.css" integrity="sha256-38M7q5qojYnNeMJh+sMEDVvJ27EW2sKa/0zR0bFo0Ns=" crossorigin="anonymous" />
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <header class="my-header">
-            <div class="container">
-                <h1>Coordinates Toolbox</h1>
-            </div>
-        </header>
-        <div class="container">
-            <div class="well">
-                <h2>Waypoint Projection</h2>
-                <div class="form-horizontal">
-                    <div class="form-group" id="projCoordsInput">
-                        <label for="projCoords" class="col-sm-2 control-label">Coordinates</label>
-                        <div class="col-sm-10">
-                            <input id="projCoords" class="form-control" type="text" placeholder="Coordinates of start point"/>
-                        </div>
-                    </div>
-                    <div id="projCoordsHelp" class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
+        <div id="layout">
+            <a href="#menu" id="menuLink" class="menu-link">
+                <!-- Hamburger icon -->
+                <span></span>
+            </a>
 
-                    <div class="form-group" id="projDistanceInput">
-                        <label for="projDistance" class="col-sm-2 control-label">Distance</label>
-                        <div class="col-sm-8">
-                            <input id="projDistance" class="form-control" type="text" placeholder="Length of projection"/>
+            <div id="menu">
+                <div class="pure-menu">
+                    <a class="pure-menu-heading" href="#">Tools</a>
+
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item"><a href="#projection" class="pure-menu-link">Projection</a></li>
+                        <li class="pure-menu-item"><a href="#distance" class="pure-menu-link">Distance</a></li>
+                        <li class="pure-menu-item"><a href="#formats" class="pure-menu-link">Formats</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="main">
+                <div class="header">
+                    <h1>Coordinates Toolbox</h1>
+                    <h2>A selection of tools to work with (geographic) coordinates</h2>
+                </div>
+
+                <div class="content">
+                    <a name="projection"></a>
+                    <h2 class="content-subhead">Waypoint Projection</h2>
+                    <p>Perform a waypoint projection starting at <em>Point A</em>.</p>
+                    <div class="pure-form pure-g">
+                        <!-- Point A -->
+                        <div class="pure-u-5-5">
+                            <label>Point A</label>
                         </div>
-                        <div class="col-sm-2">
-                            <select id="projDistanceUnit" class="form-control">
+                        <div class="pure-u-5-5">
+                            <input id="projCoords" class="pure-input-1" type="text" placeholder="Coordinates of start point"/>
+                        </div>
+                        <div id="projCoordsHelp" class="pure-u-5-5">
+                            <div class="error-block"></div>
+                        </div>
+
+                        <!-- Distance -->
+                        <div class="pure-u-5-5">
+                            <label>Distance</label>
+                        </div>
+                        <div class="pure-u-4-5">
+                            <input id="projDistance" class="pure-input-1" type="text" placeholder="Length of projection"/>
+                        </div>
+                        <div class="pure-u-1-5">
+                            <select id="projDistanceUnit" class="pure-input-1">
                                 <option value="1000">km</option>
                                 <option value="1">m</option>
                                 <option value="1609.344">mi</option>
                                 <option value="0.3048">f</option>
                             </select>
                         </div>
-                    </div>
-                    <div id="projDistanceHelp" class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="help-block"></span>
+                        <div id="projDistanceHelp" class="pure-u-5-5">
+                            <div class="error-block"></div>
                         </div>
-                    </div>
 
-                    <div class="form-group" id="projBearingInput">
-                        <label for="projBearing" class="col-sm-2 control-label">Bearing</label>
-                        <div class="col-sm-10">
-                            <input id="projBearing" class="form-control" type="text" placeholder="Angle of projection" />
+                        <!-- Bearing -->
+                        <div class="pure-u-5-5">
+                            <label>Bearing (0 = North, 90 = East, ...)</label>
                         </div>
-                    </div>
-                    <div id="projBearingHelp" class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="help-block"></span>
+                        <div class="pure-u-5-5">
+                            <input id="projBearing" class="pure-input-1" type="text" placeholder="Angle of projection"/>
                         </div>
-                    </div>
+                        <div id="projBearingHelp" class="pure-u-5-5">
+                            <div class="error-block"></div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="projModel" class="col-sm-2 control-label">Model</label>
-                        <div class="col-sm-10">
-                            <select id="projModel" class="form-control">
+                        <!-- model -->
+                        <div class="pure-u-5-5">
+                            <label>Earth Model</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <select id="projModel" class="pure-input-1">
                                 <option value="wgs84">WGS84</option>
                                 <option value="sphere">Sphere</option>
                             </select>
                         </div>
-                    </div>
 
-                    <hr />
+                        <hr />
 
-                    <div class="form-group">
-                        <label for="projResult" class="col-sm-2 control-label">Result</label>
-                        <div class="col-sm-8">
-                            <input id="projResult" class="form-control" type="text" readonly />
+                        <!-- Result -->
+                        <div class="pure-u-5-5">
+                            <label>Point B (Result)</label>
                         </div>
-                        <div class="col-sm-2">
-                            <select id="projResultFormat" class="form-control">
+                        <div class="pure-u-4-5">
+                            <input id="projResult" class="pure-input-1" type="text" readonly/>
+                        </div>
+                        <div class="pure-u-1-5">
+                            <select id="projResultFormat" class="pure-input-1">
                                 <option value="HDMS">HDMS</option>
                                 <option value="HDM">HDM</option>
                                 <option value="HD">HD</option>
@@ -88,130 +108,131 @@
                             </select>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="well">
-                <h2>Distance / Bearing</h2>
-                <div class="form-horizontal">
-                    <div class="form-group" id="distCoords1Input">
-                        <label for="distCoords1" class="col-sm-2 control-label">Point A</label>
-                        <div class="col-sm-10">
-                            <input id="distCoords1" class="form-control" type="text" placeholder="Coordinates of point A"/>
+                    <a name="distance"></a>
+                    <h2 class="content-subhead">Distance / Bearing</h2>
+                    <p>Determine the distance and bearing from <em>Point A</em> to <em>Point B</em>.</p>
+                    <div class="pure-form pure-g">
+                        <!-- Point A -->
+                        <div class="pure-u-5-5">
+                            <label>Point A</label>
                         </div>
-                    </div>
-                    <div id="distCoords1Help" class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="help-block"></span>
+                        <div class="pure-u-5-5">
+                            <input id="distCoords1" class="pure-input-1" type="text" placeholder="Coordinates of point A"/>
                         </div>
-                    </div>
+                        <div id="distCoords1Help" class="pure-u-5-5">
+                            <div class="error-block"></div>
+                        </div>
 
-                    <div class="form-group" id="distCoords2Input">
-                        <label for="distCoords2" class="col-sm-2 control-label">Point B</label>
-                        <div class="col-sm-10">
-                            <input id="distCoords2" class="form-control" type="text" placeholder="Coordinates of point B"/>
+                        <!-- Point B -->
+                        <div class="pure-u-5-5">
+                            <label>Point B</label>
                         </div>
-                    </div>
-                    <div id="distCoords2Help" class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="help-block"></span>
+                        <div class="pure-u-5-5">
+                            <input id="distCoords2" class="pure-input-1" type="text" placeholder="Coordinates of point B"/>
                         </div>
-                    </div>
+                        <div id="distCoords2Help" class="pure-u-5-5">
+                            <div class="error-block"></div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="distModel" class="col-sm-2 control-label">Model</label>
-                        <div class="col-sm-10">
-                            <select id="distModel" class="form-control">
+                        <!-- model -->
+                        <div class="pure-u-5-5">
+                            <label>Earth Model</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <select id="distModel" class="pure-input-1">
                                 <option value="wgs84">WGS84</option>
                                 <option value="sphere">Sphere</option>
                             </select>
                         </div>
-                    </div>
 
-                    <hr />
+                        <hr />
 
-                    <div class="form-group">
-                        <label for="distDistance" class="col-sm-2 control-label">Distance</label>
-                        <div class="col-sm-8">
-                            <input id="distDistance" class="form-control" type="text" readonly />
+                        <!-- Result: Distance -->
+                        <div class="pure-u-5-5">
+                            <label>Distance (Result)</label>
                         </div>
-                        <div class="col-sm-2">
-                            <select id="distDistanceUnit" class="form-control">
+                        <div class="pure-u-4-5">
+                            <input id="distDistance" class="pure-input-1" type="text" readonly />
+                        </div>
+                        <div class="pure-u-1-5">
+                            <select id="distDistanceUnit" class="pure-input-1">
                                 <option value="1000">km</option>
                                 <option value="1">m</option>
                                 <option value="1609.344">mi</option>
                                 <option value="0.3048">f</option>
                             </select>
                         </div>
+
+                        <!-- Result: Bearing -->
+                        <div class="pure-u-5-5">
+                            <label>Bearing (Result)</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <input id="distBearing" class="pure-input-1" type="text" readonly />
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="distBearing" class="col-sm-2 control-label">Bearing</label>
-                        <div class="col-sm-10">
-                            <input id="distBearing" class="form-control" type="text" readonly />
+                    <a name="formats"></a>
+                    <h2 class="content-subhead">Formats</h2>
+                    <p>Show the coordinates of <em>Point A</em> in various common formats-</p>
+                    <div class="pure-form pure-g">
+                        <!-- Point A -->
+                        <div class="pure-u-5-5">
+                            <label>Point A</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <input id="formCoords" class="pure-input-1" type="text" placeholder="Coordinates of point A"/>
+                        </div>
+                        <div id="formCoordsHelp" class="pure-u-5-5">
+                            <div class="error-block"></div>
+                        </div>
+
+                        <hr />
+
+                        <!-- Result: HDMS -->
+                        <div class="pure-u-5-5">
+                            <label>HDMS Format (Result)</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <input id="formResultHDMS" class="pure-input-1" type="text" readonly />
+                        </div>
+
+                        <!-- Result: HDM -->
+                        <div class="pure-u-5-5">
+                            <label>HDM Format (Result)</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <input id="formResultHDM" class="pure-input-1" type="text" readonly />
+                        </div>
+
+                        <!-- Result: HD -->
+                        <div class="pure-u-5-5">
+                            <label>HD Format (Result)</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <input id="formResultHD" class="pure-input-1" type="text" readonly />
+                        </div>
+
+                        <!-- Result: HDMS -->
+                        <div class="pure-u-5-5">
+                            <label>D Format (Result)</label>
+                        </div>
+                        <div class="pure-u-5-5">
+                            <input id="formResultD" class="pure-input-1" type="text" readonly />
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="well">
-                <h2>Coordinate Formats</h2>
-                <div class="form-horizontal">
-                    <div class="form-group" id="formCoordsInput">
-                        <label for="formCoords" class="col-sm-2 control-label">Coordinates</label>
-                        <div class="col-sm-10">
-                            <input id="formCoords" class="form-control" type="text" placeholder="Coordinates"/>
-                        </div>
-                    </div>
-                    <div id="formCoordsHelp" class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="help-block"></span>
-                        </div>
-                    </div>
-
-                    <hr />
-
-                    <div class="form-group">
-                        <label for="formResultHDMS" class="col-sm-2 control-label">HDMS</label>
-                        <div class="col-sm-10">
-                            <input id="formResultHDMS" class="form-control" type="text" readonly />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="formResultHDM" class="col-sm-2 control-label">HDM</label>
-                        <div class="col-sm-10">
-                            <input id="formResultHDM" class="form-control" type="text" readonly />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="formResultHD" class="col-sm-2 control-label">HD</label>
-                        <div class="col-sm-10">
-                            <input id="formResultHD" class="form-control" type="text" readonly />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="formResultD" class="col-sm-2 control-label">D</label>
-                        <div class="col-sm-10">
-                            <input id="formResultD" class="form-control" type="text" readonly />
-                        </div>
-                    </div>
+                <div class="footer">
+                    <p>
+                        Made with &hearts; by <a href="https://www.florian-pigorsch.de/" target="_blank">Florian Pigorsch</a>. Hosted on <a href="https://www.uberspace.de/" target="_blank">Asteroids</a>. Sources on <a href="https://www.github.com/flopp/coordinates-toolbox" target="_blank">Github</a>.
+                    </p>
                 </div>
-            </div>
-        </div>
-
-        <footer class="my-footer">
-            <div class="container">
-                <div class="text-muted">
-                    Created with &hearts; by <a href="https://www.florian-pigorsch.de/" target="_blank">Florian Pigorsch</a>. Sources on <a href="https://www.github.com/flopp/coordinates-toolbox" target="_blank">Github</a>.
-                </div>
-            </div>
-        </footer>
+            </div> <!-- main -->
+        </div> <!-- layout -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
         <script type="application/javascript" src="scripts.js"></script>
     </body>
 </html>
