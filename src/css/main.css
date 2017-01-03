@@ -20,3 +20,12 @@
     /* hack for responsive div with x/y ratio = 100/66 */
     padding-bottom: 66%;
 }
+
+aside {
+    margin-top: 1em;
+    display: block;
+    background: #1f8dd6;
+    padding: 0.3em 1em;
+    border-radius: 4px;
+    color: #fff;
+}
