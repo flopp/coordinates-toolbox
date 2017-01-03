@@ -1,7 +1,17 @@
 # coordinates-toolbox
 A single page web-app providing several (geographic) coordinate calculations
 
-Demo on https://coords.flopp.net/
+The app (currently) supports:
+
+- fuzzy coordinate parsing
+- waypoint projection
+- distance/bearing calculation
+- coordinate format transformations
+- display of results on maps
+
+Demo: https://coords.flopp.net/
+
+![Screenshot of Waypoint Projection](https://raw.githubusercontent.com/flopp/flopp.github.io/master/coordinates-toolbox/coords-projection.jpg)
 
 ## Installation
 
