@@ -34,6 +34,8 @@ LatLng.prototype = {
             lat_sign, lat_d, lat_m, lat_s,
             lng_sign, lng_d, lng_m, lng_s;
 
+        s = s.replace(/,/g, '.');
+
         // H DDD MM SS.SSS
         pattern = /^[^A-Z0-9.\-]*([NS])[^A-Z0-9.\-]*(\d+)[^A-Z0-9.\-]+(\d+)[^A-Z0-9.\-]+([\d\.]+)[^A-Z0-9.\-]+([EW])[^A-Z0-9.\-]*(\d+)[^A-Z0-9.\-]+(\d+)[^A-Z0-9.\-]+([\d\.]+)[^A-Z0-9.\-]*$/i;
         //
@@ -59,15 +61,17 @@ LatLng.prototype = {
         return false;
     },
 
-    fromStringHDM : function (coordsString) {
+    fromStringHDM : function (s) {
         var matches, pattern,
             lat_sign, lat_d, lat_m,
             lng_sign, lng_d, lng_m;
 
+        s = s.replace(/,/g, '.');
+
         // H DDD MM.MMM
         pattern = /^[^A-Z0-9.\-]*([NS])[^A-Z0-9.\-]*(\d+)[^A-Z0-9.\-]+([\d\.]+)[^A-Z0-9.\-]+([EW])[^A-Z0-9.\-]*(\d+)[^A-Z0-9.\-]+([\d\.]+)[^A-Z0-9.\-]*$/i;
         //
-        matches = coordsString.match(pattern);
+        matches = s.match(pattern);
         if (matches) {
             lat_sign = (matches[1] === 'S') ? -1 : 1;
             lng_sign = (matches[4] === 'W') ? -1 : 1;
@@ -87,15 +91,17 @@ LatLng.prototype = {
         return false;
     },
 
-    fromStringHD : function (coordsString) {
+    fromStringHD : function (s) {
         var matches, pattern,
             lat_sign,
             lng_sign;
 
+        s = s.replace(/,/g, '.');
+
         // H DDD.DDDDD
         pattern = /^[^A-Z0-9.\-]*([NS])[^A-Z0-9.\-]*([\d\.]+)[^A-Z0-9.\-]+([EW])[^A-Z0-9.\-]*([\d\.]+)[^A-Z0-9.\-]*$/i;
         //
-        matches = coordsString.match(pattern);
+        matches = s.match(pattern);
         if (matches) {
             lat_sign = (matches[1] === 'S') ? -1 : 1;
             lng_sign = (matches[3] === 'W') ? -1 : 1;
@@ -111,15 +117,17 @@ LatLng.prototype = {
     },
 
 
-    fromStringD : function (coordsString) {
+    fromStringD : function (s) {
         var matches, pattern,
             lat_sign,
             lng_sign;
 
+        s = s.replace(/,/g, '.');
+
         // DDD.DDDDD
         pattern = /^[^A-Z0-9.\-]*(-?)([\d\.]+)[^A-Z0-9.\-]+(-?)([\d\.]+)[^A-Z0-9.\-]*$/i;
         //
-        matches = coordsString.match(pattern);
+        matches = s.match(pattern);
         if (matches) {
             lat_sign = (matches[1] === '-') ? -1 : 1;
             lng_sign = (matches[3] === '-') ? -1 : 1;
